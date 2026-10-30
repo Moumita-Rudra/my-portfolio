@@ -145,7 +145,7 @@ const certModalClose = certModal.querySelector(".cert-modal-close");
 
 document.querySelectorAll(".cert-btn").forEach(btn => {
     btn.addEventListener("click", () => {
-        certModalImg.src = btn.dataset.img;
+        certModalImg.src = new URL(btn.dataset.img, document.baseURI).href;
         certModalCaption.textContent = btn.dataset.title || "";
         certModal.classList.add("active");
         document.body.style.overflow = "hidden";
